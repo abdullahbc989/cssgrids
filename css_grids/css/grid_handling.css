@@ -1,0 +1,39 @@
+html {
+    font-size: 16px;
+}
+
+.wrapper {
+    display: grid;
+    /*
+    grid-template-columns: 1fr 1fr 1fr;
+    */
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+    /* Although it says auto, it's still restricting to 100px
+    grid-auto-rows: 100px;
+    I want the minimum to be 100px but if it can't fit then make it large
+    enough to fit. However, the whole row will follow suit even if they can still be only min
+    */
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.nested {
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-auto-rows: 70px;
+    grid-gap: 1em;
+}
+
+.wrapper > div {
+    background: #eee;
+    padding: 1em;
+}
+
+.wrapper >div:nth-child(odd) {
+    background: #ddd;
+}
+
+.nested > div {
+    border: #333 1px solid;
+    padding: 1em
+}
